@@ -52,3 +52,16 @@ php artisan migrate:fresh
 7. Setelah itu buat controller untuk CRUD pada controller, dan buat route untuk api pada routes/api.php .
 
 ## Cara Menggunakan API
+
+1. Menampilkan semua data menggunakan method get.
+```bash
+GET http://127.0.0.1:8000/api/mahasiswa
+```
+2. Menampilkan salahsatu data.
+```bash
+GET http://127.0.0.1:8000/api/mahasiswa/{id}
+```
+sebagai contoh : 
+```bash
+GET http://127.0.0.1:8000/api/mahasiswa/639a6f5c22f26a910e0cabe2
+```
