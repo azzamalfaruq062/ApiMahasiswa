@@ -9,5 +9,5 @@ use Jenssegers\Mongodb\Eloquent\Model;
 class Mahasiswa extends Model
 {
     use HasFactory;
-    protected $guarded = ['id'];
+    protected $guarded = ['id'];//untuk mengecualikan data yg tidak diisi, kebalikan dari filble
 }

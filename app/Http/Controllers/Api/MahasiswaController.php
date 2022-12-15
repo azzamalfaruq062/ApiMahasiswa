@@ -14,12 +14,12 @@ class MahasiswaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index()//fungsi index untuk menampilkan semua data
     {
-        $data = Mahasiswa::all();
+        $data = Mahasiswa::all();//fariabel data , menampung data dari db mahasiswas
 
-        if ($data) {
-            return ApiFormater::createApi(200, 'Succes Show Data', $data);
+        if ($data) {//pengkondisian bila ditemukan data maka sukses jika tidak failed
+            return ApiFormater::createApi(200, 'Succes Show Data', $data);//apiformater dibuat untuk mempermudah formating file json, dapat ditemukan pada app/helpers/apiformater.php
         }else{
             return ApiFormater::createApi(400, 'Failed');
         }
@@ -33,7 +33,7 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        $data = Mahasiswa::create([
+        $data = Mahasiswa::create([//create untuk menambah data baru
             'name' =>$request->name,
             'nis' =>$request->nis,
             'fakultas' =>$request->fakultas,
@@ -54,7 +54,7 @@ class MahasiswaController extends Controller
      */
     public function show($id)
     {
-        $data = Mahasiswa::find($id);
+        $data = Mahasiswa::find($id);//find untuk mencari data sesuai id
 
         if ($data) {
             return ApiFormater::createApi(200, 'Succes Show One Data', $data);
@@ -73,7 +73,7 @@ class MahasiswaController extends Controller
     public function update(Request $request, $id)
     {
         $data = Mahasiswa::find($id);
-        $data->update($request->all());
+        $data->update($request->all());//update untuk update data sesuai id dg sebelumnya dicari dulu data dengan id tertentu
         if ($data) {
             return ApiFormater::createApi(200, 'Succes Update', $data);
         }else{
@@ -90,7 +90,7 @@ class MahasiswaController extends Controller
     public function destroy($id)
     {
         $data = Mahasiswa::find($id);
-        $data->delete();
+        $data->delete();//untuk delete data dan seperti sebelumna dicari dulu data sesuai id
         if ($data) {
             return ApiFormater::createApi(200, 'Succes Delete', $data);
         }else{
