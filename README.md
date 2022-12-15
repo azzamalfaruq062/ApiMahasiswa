@@ -54,14 +54,35 @@ php artisan migrate:fresh
 ## Cara Menggunakan API
 
 1. Menampilkan semua data menggunakan method get.
-```bash
-GET http://127.0.0.1:8000/api/mahasiswa
-```
+    ```bash
+    GET http://127.0.0.1:8000/api/mahasiswa
+    ```
 2. Menampilkan salahsatu data.
-```bash
-GET http://127.0.0.1:8000/api/mahasiswa/{id}
-```
-sebagai contoh : 
-```bash
-GET http://127.0.0.1:8000/api/mahasiswa/639a6f5c22f26a910e0cabe2
-```
+    ```bash
+    GET http://127.0.0.1:8000/api/mahasiswa/{id}
+    ```
+    Sebagai contoh : 
+    ```bash
+    GET http://127.0.0.1:8000/api/mahasiswa/639a6f5c22f26a910e0cabe2
+    ```
+3. Menambah data menggunakan method post.
+    ```bash
+    POST http://127.0.0.1:8000/api/mahasiswa/add
+    ```
+4. Update data menggunakan method put.
+    ```bash
+    PUT http://127.0.0.1:8000/api/mahasiswa/update/{id}
+    ```
+    Sebagai contoh :
+    ```bash
+    PUT http://127.0.0.1:8000/api/mahasiswa/update/639a6f5c22f26a910e0cabe2
+    ```
+3. Hapus data menggunakan.
+    ```bash
+    GET http://127.0.0.1:8000/api/mahasiswa/delete/{id}
+    ```
+    Sebagi contoh
+    ```bash
+    GET http://127.0.0.1:8000/api/mahasiswa/delete/639a6977b7725f51614abda6
+    ```
+Sebelum itu silahkan download terlebih dahulu file mahasiswas.json, setelah itu buat database baru dengan nama mahasiswas pada mongodb anda dan kemudian import file mahasiswas.json. kemudian jalankan file laravel pada localhost anda. setelah itu api pun bisa digunakan.

@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "639a6f5c22f26a910e0cabe2"
+  },
+  "name": "Rangga",
+  "nis": "130987",
+  "fakultas": "Psikologi",
+  "jurusan": "Psikologi",
+  "updated_at": {
+    "$date": {
+      "$numberLong": "1671065787801"
+    }
+  },
+  "created_at": {
+    "$date": {
+      "$numberLong": "1671065436413"
+    }
+  }
+}]
