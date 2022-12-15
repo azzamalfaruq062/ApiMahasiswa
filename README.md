@@ -16,20 +16,29 @@ composer create-project --prefer-dist laravel/laravel="^8.0"
 composer require jenssegers/mongodb="^3.8"
 ```
 4. Konfigurasi mongodb untuk laravel.
-- pada file config/app
-```bash
-Jenssegers\Mongodb\MongodbServiceProvider::class,
-```
-- pada file config/database, dan ubah default environtmen menjadi mongodb.
-```bash
-'mongodb' => [
-            'driver' => 'mongodb',
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', 27017),
-            'database' => env('DB_DATABASE', 'tes'),
-            'username' => env('DB_USERNAME', ''),
-            'password' => env('DB_PASSWORD', ''),
-        ],
-```
+    - pada file config/app
+    ```bash
+    Jenssegers\Mongodb\MongodbServiceProvider::class,
+    ```
+    - pada file config/database, dan ubah default environtmen menjadi mongodb.
+    ```bash
+    'mongodb' => [
+                'driver' => 'mongodb',
+                'host' => env('DB_HOST', '127.0.0.1'),
+                'port' => env('DB_PORT', 27017),
+                'database' => env('DB_DATABASE', 'tes'),
+                'username' => env('DB_USERNAME', ''),
+                'password' => env('DB_PASSWORD', ''),
+            ],
+    ```
+    - pada .env .
+    ```bash
+    DB_CONNECTION=mongodb
+    DB_HOST=127.0.0.1
+    DB_PORT=27017
+    DB_DATABASE=mahasiswa
+    DB_USERNAME=
+    DB_PASSWORD=
+    ```
 
 ## Cara Menggunakan API
