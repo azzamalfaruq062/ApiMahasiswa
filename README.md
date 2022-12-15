@@ -40,5 +40,15 @@ composer require jenssegers/mongodb="^3.8"
     DB_USERNAME=
     DB_PASSWORD=
     ```
+5. Setelah itu membuat Model Mahasiswa sekaligus migrate, controller dan resource untuk controller dengan cara dibawah.
+```bash
+php artisan make:model Mahasiswa -mcr
+```
+6. Setelah itu konfirurasi semuanya dan lakukan migrate database dengan cara dibawah.
+```bash
+php artisan migrate
+php artisan migrate:fresh
+```
+7. Setelah itu buat controller untuk CRUD pada controller, dan buat route untuk api pada routes/api.php .
 
 ## Cara Menggunakan API
