@@ -19,13 +19,12 @@ class MahasiswaController extends Controller
         $data = Mahasiswa::all();
 
         if ($data) {
-            return ApiFormater::createApi(200, 'Succes', $data);
+            return ApiFormater::createApi(200, 'Succes Show Data', $data);
         }else{
             return ApiFormater::createApi(400, 'Failed');
         }
         
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -34,7 +33,17 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = Mahasiswa::create([
+            'name' =>$request->name,
+            'nis' =>$request->nis,
+            'fakultas' =>$request->fakultas,
+            'jurusan' =>$request->jurusan,
+        ]);
+        if ($data) {
+            return ApiFormater::createApi(200, 'Succes Add Data', $data);
+        }else{
+            return ApiFormater::createApi(400, 'Failed');
+        }
     }
 
     /**
@@ -45,18 +54,13 @@ class MahasiswaController extends Controller
      */
     public function show($id)
     {
-        //
-    }
+        $data = Mahasiswa::find($id);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        if ($data) {
+            return ApiFormater::createApi(200, 'Succes Show One Data', $data);
+        }else{
+            return ApiFormater::createApi(400, 'Failed');
+        }
     }
 
     /**
@@ -68,7 +72,13 @@ class MahasiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Mahasiswa::find($id);
+        $data->update($request->all());
+        if ($data) {
+            return ApiFormater::createApi(200, 'Succes Update', $data);
+        }else{
+            return ApiFormater::createApi(400, 'Failed');
+        }
     }
 
     /**
@@ -79,6 +89,12 @@ class MahasiswaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Mahasiswa::find($id);
+        $data->delete();
+        if ($data) {
+            return ApiFormater::createApi(200, 'Succes Delete', $data);
+        }else{
+            return ApiFormater::createApi(400, 'Failed');
+        }
     }
 }

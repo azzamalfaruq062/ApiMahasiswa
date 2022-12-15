@@ -19,4 +19,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('mahasiswa', MahasiswaController::class);
+// Jika ingin mudah menggunakan route resource, tanpa deklarasi satu persatu yg ada di controller api
+// Route::resource('mahasiswa', MahasiswaController::class);
+
+Route::get('mahasiswa', [MahasiswaController::class, 'index']);
+Route::get('mahasiswa/{id}', [MahasiswaController::class, 'show']);
+Route::post('mahasiswa/add', [MahasiswaController::class, 'store']);
+Route::put('mahasiswa/update/{id}', [MahasiswaController::class, 'update']);
+Route::get('mahasiswa/delete/{id}', [MahasiswaController::class, 'destroy']);
